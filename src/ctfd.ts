@@ -82,9 +82,9 @@ export async function login(address: string, username: string, password: string,
 		session: await getSession(jar, url),
 		nonce: result.csrfNonce,
 		user: {
-			name: result.userName,
+			name: result.userName!,
 			id: result.userId,
-			email: result.userEmail
+			email: result.userEmail!
 		}
 	}
 }

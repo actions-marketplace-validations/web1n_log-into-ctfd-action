@@ -21,6 +21,10 @@ export async function run(): Promise<void> {
 		core.setOutput('user_name', user.name);
 		core.setOutput('user_email', user.email);
 
+		core.setSecret(nonce);
+		core.setSecret(session);
+		core.setSecret(user.email);
+
 		console.log('Login Succeeded!');
 	} catch (error) {
 		core.setFailed(error.message);
