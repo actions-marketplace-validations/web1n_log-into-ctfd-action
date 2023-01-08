@@ -1,0 +1,41 @@
+name: 'Log into CTFd site'
+description: 'GitHub Action to log into CTFd site'
+author: 'web1n'
+branding:
+  icon: corner-down-right
+  color: gray-dark
+
+inputs:
+  address:
+    description: 'Server address of CTFd site, sample: https://example.com'
+    required: true
+  username:
+    description: 'Username used to log into CTFd'
+    required: true
+  password:
+    description: 'Password used to log into CTFd'
+    required: true
+  otp:
+    description: 'One time code used to log into CTFd'
+    required: false
+  logout:
+    description: 'Log out from CTFd at the end of a job'
+    default: 'true'
+    required: false
+
+outputs:
+  user_id:
+    description: 'User id'
+  user_name:
+    description: 'User name'
+  user_email:
+    description: 'User email address'
+  session:
+    description: 'Cookie session id'
+  nonce:
+    description: 'Csrf nonce'
+
+runs:
+  using: 'node16'
+  main: 'dist/index.js'
+  post: 'dist/index.js'
